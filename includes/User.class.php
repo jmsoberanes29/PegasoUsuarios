@@ -38,6 +38,19 @@
             }
 
         }
+
+        public static function delete_user_by_id($id){
+            $database = new Database();
+            $conn = $database->getConnection();
+
+            $stmt = $conn->prepare('DELETE FROM users WHERE id=:id');
+            $stmt->bindParam(':id',$id);
+            if($stmt->execute()){
+                header('HTTP/1.1 201 Usuario eliminado correctamente');
+            } else {
+                header('HTTP/1.1 404 Usuario no se ha podido eliminar correctamente');
+            }
+        }
     }
 
 ?>
