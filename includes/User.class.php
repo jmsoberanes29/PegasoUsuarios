@@ -51,6 +51,19 @@
                 header('HTTP/1.1 404 Usuario no se ha podido eliminar correctamente');
             }
         }
+
+        public static function get_all_users(){
+            $database = new Database();
+            $conn = $database->getConnection();
+            $stmt = $conn->prepare('SELECT * FROM users');
+            if($stmt->execute()){
+                $result = $stmt->fetchAll();
+                echo json_encode($result);
+                header('HTTP/1.1 201 OK');
+            } else {
+                header('HTTP/1.1 404 No se ha podido consultar los usuarios');
+            }
+        }
     }
 
 ?>
