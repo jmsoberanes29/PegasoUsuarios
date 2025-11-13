@@ -1,0 +1,12 @@
+DROP DATABASE if exists grupo_pegaso;
+
+CREATE DATABASE IF NOT EXISTS grupo_pegaso DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+USE grupo_pegaso;
+CREATE TABLE IF NOT EXISTS users(
+		id INT AUTO_INCREMENT,		
+		name VARCHAR(255) NOT NULL,
+		email VARCHAR(255) NOT NULL,
+		city VARCHAR(255) NOT NULL,
+        telephone VARCHAR(255) NOT NULL,
+		PRIMARY KEY (id)
+)  ENGINE=INNODB;
